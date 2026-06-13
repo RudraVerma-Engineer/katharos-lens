@@ -1,44 +1,47 @@
 {
   "expo": {
-    "name": "katharos-lens",
+    "name": "Katharos Lens",
     "slug": "katharos-lens",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "katharoslens",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "dark",
+    // "splash": {
+    //   "image": "./assets/images/splash-icon.png",
+    //   "resizeMode": "contain",
+    //   "backgroundColor": "#0A0A0F"
+    // },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "icon": "./assets/expo.icon"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.katharos.lens",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Katharos Lens needs microphone access for voice observation capture.",
+        "NSSpeechRecognitionUsageDescription": "Katharos Lens uses speech recognition to convert your voice to text.",
+        "NSPhotoLibraryUsageDescription": "Katharos Lens needs photo library access to attach evidence to observations.",
+        "NSCameraUsageDescription": "Katharos Lens needs camera access to capture evidence photos."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0A0F"
       },
-      "predictiveBackGestureEnabled": false
-    },
-    "web": {
-      "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "permissions": [
+        "RECORD_AUDIO",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "CAMERA"
+      ],
+      "package": "com.katharos.lens"
     },
     "plugins": [
-      "expo-router",
       [
-        "expo-splash-screen",
+        "expo-image-picker",
         {
-          "backgroundColor": "#208AEF",
-          "android": {
-            "image": "./assets/images/splash-icon.png",
-            "imageWidth": 76
-          }
+          "photosPermission": "Allow Katharos Lens to attach photos as evidence."
         }
       ]
-    ],
-    "experiments": {
-      "typedRoutes": true,
-      "reactCompiler": true
-    }
+    ]
   }
 }
